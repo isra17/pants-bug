@@ -4,6 +4,10 @@
 # This target sets the metadata for all the Python non-test files in this directory.
 python_sources(
     name="lib",
+    overrides={
+      "translator.py": dict(resolve="python-other"),  # Not working
+      "__init__.py": dict(resolve=parametrize("python-other")),  # Working
+    }
 )
 
 # This target sets the metadata for all the Python test files in this directory.
